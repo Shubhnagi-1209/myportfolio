@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY PORTFOLIO</title>
+<link rel="stylesheet" href="portfolio.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+<header>
+<h2 class="logo"><span>S</span>S</h2>
+<nav class="navigation">
+<a href="portfolio.html">HOME</a>
+<a href="about.html">ABOUT</a>
+<a href="blog.html">BLOG</a>
+<a href="Resume (1).pdf" id="resume-link">RESUME</a>
+<a href="contact.html" id="contact-link">CONTACT</a>
+</nav>
+</header>
+
+</section>
+<section class="HOME">
+<div class="content">
+<h2> Hii, I am Shubhangi Sinha!!</h2>
+<h4>Student at IIT(ISM)Dhanbad</h4>
+<p>I'm an B.Tech student Pursuing Electrical Engineering.I'm currently in my 2nd year and I'm learning more skills to become a good Full Stack Web Developer.</p>
+<button class="btn-grp">
+<a href="#">My Projects</a>
+</button>
+<button class="btn">
+<a href="#">Hire</a>
+</button>
+</div>
+<div class="social-icons">
+<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+<a href="https://wa.me/<918210541833>"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+<div class="profile-image">
+<img src="https://friconix.com/png/fi-cnsuxx-user-circle-solid.png" alt="profile-photo of Shubhangi.">
+</div>
+</section>
+<script>
+document.getElementById('resume-link').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link behavior
+
+    // Show a prompt to the user
+    const userChoice = confirm("Click OK to download the resume,or cancel to view it in other tab.");
+
+    // Path to your resume (make sure the file name matches exactly)
+    const resumeUrl = 'Resume (1).pdf';
+
+    if (userChoice) {
+        // Download the PDF
+        const a = document.createElement('a');
+        a.href = resumeUrl;
+        a.download = resumeUrl.split('/').pop(); // Use the file name for download
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    } else {
+        // Open the PDF in a new tab
+        window.open(resumeUrl, '_blank');
+    }
+});
+</script>
+
+
+</body>
+</html>

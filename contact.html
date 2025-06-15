@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONTACT</title>
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+  <header>
+     <h2 class="logo"><span>S</span>S</h2>
+    <nav class="navigation">
+      <a href="portfolio.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="Resume (1).pdf " id="resume-link">RESUME</a>
+              <a href="blog.html">BLOG</a>
+    </nav>
+  </header>
+  <section class="contact-link">
+      <h3>Have a question, project, or just want to say hello? Fill out the form or reach me directly!</h3>
+      <form class="contact-form" action="https://formspree.io/f/xwpbbpdk" method="post">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    <div id="thankYouMessage" style="display:none; color: #fff; font-weight: bold;">
+  Thank you! Your message has been sent.
+</div>
+<script>
+document.querySelector('.contact-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  var form = event.target;
+  var data = new FormData(form);
+  fetch(form.action, {
+    method: form.method,
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(function(response) {
+    if (response.ok) {
+      form.style.display = 'none';
+      document.getElementById('thankYouMessage').style.display = 'block';
+      form.reset();
+    } else {
+      alert('Oops! There was a problem submitting your form');
+    }
+  }).catch(function(error) {
+    alert('Oops! There was a problem submitting your form');
+  });
+});
+</script>
+
+  </section>
+</body>
+</html>
